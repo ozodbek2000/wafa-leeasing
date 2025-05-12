@@ -18,15 +18,14 @@
  </head>
  <body>
      <header class="header">
-        <div class="header__container animate__animated" data-animate="animate__fadeInDown">
+        <div class="header__container" >
             <div class="header__logos">
                 <a href="##" class="header__logo">
-                    <img src="./img/png/logo.png" alt="">               
+                    <img class="logo-bright" src="./img/png/logo-bright.png" alt="">               
+                    <img class="logo-dark" src="./img/png/logo-dark.png" alt="">               
                 </a>
             </div>
-            <div class="header__text">Продуктов сертифицированы Шариатским советом</div>
             <div class="header__languages">
-                <a href="##" class="header__button button">Связаться с нами</a>
                 <div class="header__lang">
                     <a href="##">
                         <img src="./img/svg/language.svg" alt="#">
@@ -50,32 +49,58 @@
                         </li>
                     </ul>
                 </div>
+                <a href="##" class="header__button button screen-only">Связаться с нами</a>
             </div>
+            <div class="main__switcher">
+                <p>Включить темную тему</p>
+            </div>
+            <a href="##" class="header__button button tablet-only">Связаться с нами</a>
         </div>
      </header>
     <div class="wrapper">
+
         <section class="main">
             <div class="main__container">
-                <div class="main__title animate__animated animate__fadeInDown">
-                    <span>Будущее финансов</span>
-                    <a href="##">подробнее <div>
-                        <svg class="arrow-right" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <mask id="mask0_10_1038" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
-                            <rect width="24" height="24" fill="#D9D9D9"/>
-                            </mask>
-                            <g mask="url(#mask0_10_1038)">
-                            <path d="M14 18L12.6 16.55L16.15 13H4V11H16.15L12.6 7.45L14 6L20 12L14 18Z" fill="#171717"/>
-                            </g>
-                        </svg>
-                    </div></a>
-                    <span>по законам</span><span class="main__shariah">  Шариата</span>
+                <div class="main__grid">
+                    <div class="main__grid_min-item">
+                        <h3>Объекты недвижимости</h3>
+                        <img class="main__grid_svg" src="./img/png/hand.png" alt="#">
+                        <img class="main__grid_item-bg" src="./img/png/object-bg01.png" alt="#">
+                    </div>
+                    <div class="main__grid_big-item">
+                        <h3>Халяльно. Удобно.<br> На всё.</h3>
+                        <a class="main__grid_about" href="##">
+                            подробнее
+                            <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <mask id="mask0_484_245" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="24">
+                                <rect x="0.839844" width="24" height="24" fill="#D9D9D9"/>
+                                </mask>
+                                <g mask="url(#mask0_484_245)">
+                                <path d="M14.8398 18L13.4398 16.55L16.9898 13H4.83984V11H16.9898L13.4398 7.45L14.8398 6L20.8398 12L14.8398 18Z" fill="#171717"/>
+                                </g>
+                            </svg>
+                        </a>
+                        <img class="main__grid_big-bg" src="./img/png/object-bg02.png" alt="#">
+                    </div>
+                    <div class="main__grid_item">
+                        <h3>Легковые автомобили</h3>
+                        <img src="./img/png/suv-car.png" alt="#">
+                    </div>
+                    <div class="main__grid_item">
+                        <h3>Грузовые автомобили</h3>
+                        <img src="./img/png/truck.png" alt="#">
+                    </div>
+                    <div class="main__grid_item">
+                        <h3>Специальная техника</h3>
+                        <img src="./img/png/bulldozer.png" alt="#">
+                    </div>
                 </div>
-                <div class="main__advantages animate__fadeInDownBig animate__animated">
+                <div class="main__advantages">
                     <div class="main__advantage">
                         <div class="main__advantage_title">Гарантия безопасности</div>
                         <div class="main__advantage_text">Технологичное и этичное финансирование без риба</div>
                     </div>
-                    <div class="main__advantage_card">
+                    <div class="main__advantage_card main__advantage_card--first">
                         <span>100%</span>
                         <p>Соблюдение религии</p>
                     </div>
@@ -83,39 +108,26 @@
                         <span>20K</span>
                         <p>Довольных клиентов</p>
                     </div>
-                    <div class="main__switcher">
-                        <p>Включить темную тему</p>
+                    <div class="main__advantage--last main__advantage_card">
+                        <span>20K</span>
+                        <p>Довольных клиентов</p>
                     </div>
                 </div>
             </div>
+            <div class="main-bg">
+                <img class="light" src="./img/background/page-light-bg.jpg" alt="#">
+                <img class="dark" src="./img/background/page-dark-bg.png" alt="#">
+            </div>
         </section>
-        <section class="we">
-            <div class="we__container">
-                <img class="img " src="./img/png/box.png" alt="#">
-                <div class="we__box animate__fadeInDown animate__animated">
-                    <div class="we__subtitle subtitle">Кто мы?</div>
-                    <div class="we__title title">Мы WAFA</div>
-                    <div class="we__text text">Мы – инновационная исламская финансовая платформа, предлагающая передовые решения на основе шариатских принципов. Наши услуги объединяют традиционные ценности и современные технологии, гарантируя честность, прозрачность и справедливость.</div>
+        <section class="wafa">
+            <div class="wafa__container">
+                <div class="wafa__image">
+                    <img src="./img/jpg/wafa01.jpg" alt="#">
                 </div>
-                <div class="we__grid animate__animated" data-animate="animate__fadeInDown">
-                    <div class="we__card">
-                        <img src="./img/svg/check.svg" alt="#">
-                        <div class="we__card_text text">Фиксированная цена на весь срок</div>
-                    </div>
-                    <div class="we__card">
-                        <img src="./img/svg/clock.svg" alt="#">
-                        <div class="we__card_text text">Срок рассрочки от 6-ти месяцев до 3-х лет</div>
-                    </div>
-                    <div class="we__card">
-                        <img src="./img/svg/coin.svg" alt="#">
-                        <div class="we__card_text text">Первоначальный взнос 10% от суммы рассрочки</div>
-                    </div>
-                    <div class="we__card">
-                        <img src="./img/svg/lightning.svg" alt="#">
-                        <div class="we__card_text text">Отсутствие штрафов, пеней, неустоек и комиссий</div>
-                    </div>
+                <div class="wafa__title_box">
+                    <div class="wafa__title title">МЫ WAFA</div>
+                    <div class="wafa__text">Мы – инновационная исламская финансовая платформа, предлагающая передовые решения на основе шариатских принципов. Наши услуги объединяют традиционные ценности и современные технологии, гарантируя честность, прозрачность и справедливость.</div>
                 </div>
-                
             </div>
         </section>
         <section class="our">
