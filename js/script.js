@@ -154,9 +154,16 @@ $(document).ready(function() {
 
     // LEAFLET MAP 
     $(document).ready(function () {
-      const centerLatLng = [41.37382608808563, 69.27000330564698]; // Example: Tashkent
+      const centerLatLng = [41.374333, 69.276861]; // Converted coordinates
     
-      const map = L.map('map').setView(centerLatLng, 16);
+      const map = L.map('map').setView(
+        window.innerWidth < 696 
+          ? [41.37175, 69.276556] 
+          : window.innerWidth < 1270 
+        ? [41.373583, 69.272333] 
+        : [41.37262178023456, 69.2718746665852], 
+        16
+      );
     
       // Add OpenStreetMap tiles
       L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {

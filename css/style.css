@@ -1741,7 +1741,7 @@ body.active .our__card:hover, body.active .our__card:hover .our__text, body.acti
   }
   .footer__card_news {
     padding-right: 0% !important;
-    padding-bottom: calc(50% + 24px) !important;
+    padding-bottom: calc(60% + 24px) !important;
     grid-column-start: inherit;
     grid-column-end: inherit;
     grid-row-start: inherit;
@@ -2606,5 +2606,91 @@ body.active .faq__item_svg svg path {
 @media (max-width: 696px) {
   .faq__box {
     flex-direction: column;
+  }
+}
+/* HOW SECTION ======================================================================= */
+.how__container {
+  display: block;
+  position: relative;
+}
+.how__map {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 610px;
+}
+.how__info {
+  display: inline-block;
+  background-color: var(--light-green);
+  border-radius: 50px;
+  padding: 36px;
+  max-width: 445px;
+  z-index: 1;
+  margin: 100px 0px 100px 70px;
+}
+.how__info > svg path{
+  fill: var(--bg-green);
+}
+.how__title {
+  margin: 32px 0px;
+}
+.how__map #map {
+  height: 100% !important;
+  z-index: 0;
+}
+.footer {
+  padding-bottom: 200px;
+}
+@media (max-width: 1270px) {
+  .how__map {
+    height: 550px;
+    padding: 0px 15px;
+  }
+  .how__info {
+    padding: 36px;
+    max-width: 445px;
+    z-index: 1;
+    margin: 178px 0px 22px 15px;
+  }
+  .how__info > svg path{
+    fill: var(--bg-green);
+  }
+  .how__title {
+    margin: 32px 0px 16px 0px;
+  }
+  .how__map #map {
+    height: 100% !important;
+    z-index: 0;
+  }
+  .footer {
+    padding-bottom: 50px;
+  }
+  .how__socials {
+    margin-top: 16px;
+  }
+}
+@media (max-width: 696px) {
+  .how__map {
+  }
+  .how__info {
+    padding: 24px;
+    margin: 250px 10px 22px 10px;
+  }
+  .how__info > svg path{
+    fill: var(--bg-green);
+  }
+  .how__title {
+    margin: 32px 0px 16px 0px;
+  }
+  .how__map #map {
+    height: 100% !important;
+    z-index: 0;
+  }
+  .footer {
+    padding-bottom: 50px;
+  }
+  .how__socials {
+    margin-top: 16px;
   }
 }
