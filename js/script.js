@@ -6,6 +6,19 @@ $(document).ready(function() {
     $('.main__switcher > p').click(function(event) {
         $(this).toggleClass('active');
     });
+    $('.faq__item').click(function(event) {
+        $(this).toggleClass('active');
+    });
+    $('.our__slide').click(function(event) {
+      $('.our__slide').removeClass('active');
+      $(this).toggleClass('active');
+    });
+
+    $(document).click(function(event) {
+      if (!$(event.target).closest('.our__slide').length) {
+        $('.our__slide').removeClass('active');
+      }
+    });
     $('.main__switcher').click(function(event) {
         $('body').toggleClass('active');
     });
@@ -186,9 +199,8 @@ $(document).ready(function() {
 })
 
 new Swiper('.partner__grid', {
-  slidesPerView: 2,
-  spaceBetween: 0,
-  direction: "vertical",
+  slidesPerView: 4.2,
+  spaceBetween: 32,
   autoplay: {
     delay: 0,
     disableOnInteraction: false,
@@ -197,35 +209,54 @@ new Swiper('.partner__grid', {
   loop: true,
   breakpoints: {
     1270: { 
-      slidesPerView: 2.0,
-    },
-    1020: { 
-      slidesPerView: 3.0,
-    },
-    1020: { 
-      slidesPerView: 3.5,
-    },
-    768: { 
       slidesPerView: 4.2,
     },
-    696: { 
-      slidesPerView: 4,
+    // 1020: { 
+    //   slidesPerView: 3.0,
+    // },
+    // 1020: { 
+    //   slidesPerView: 3.5,
+    // },
+    768: { 
+      slidesPerView: 5,
+      spaceBetween: 16,
     },
-    520: { 
-      slidesPerView: 2,
-    },
-    420: { 
-      slidesPerView: 2.7,
-    },
-    320: { 
-      slidesPerView: 3,
-    },
-    200: { 
-      slidesPerView: 2.5,
-    },
+    // 696: { 
+    //   slidesPerView: 4,
+    // },
+    // 520: { 
+    //   slidesPerView: 2,
+    // },
+    // 420: { 
+    //   slidesPerView: 2.7,
+    // },
+    // 320: { 
+    //   slidesPerView: 3,
+    // },
+    // 200: { 
+    //   slidesPerView: 2.5,
+    // },
     1: { 
-      slidesPerView: 4,
+      slidesPerView: 2.4,
+      spaceBetween: 16,
     },
   }
 });
 
+// WAFA LEASING
+// SLIDER
+new Swiper('.our__slider', {
+  spaceBetween: -50,
+  breakpoints: {
+    0: {
+      slidesPerView: 1.8,
+      spaceBetween: -25,
+    },
+    767: {
+      slidesPerView: 2.5,
+    },
+    1270: {
+      slidesPerView: 4,
+    },
+  }
+});
