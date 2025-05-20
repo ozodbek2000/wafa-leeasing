@@ -13,7 +13,10 @@ $(document).ready(function() {
       $('.our__slide').removeClass('active');
       $(this).toggleClass('active');
     });
-
+    $('.calc__deposit span').click(function(event) {
+      $('.calc__deposit span').removeClass('active'); // Remove active class from all spans
+      $(this).addClass('active'); // Add active class to the clicked span
+    });
     $(document).click(function(event) {
       if (!$(event.target).closest('.our__slide').length) {
         $('.our__slide').removeClass('active');
@@ -22,9 +25,17 @@ $(document).ready(function() {
     $('.main__switcher').click(function(event) {
         $('body').toggleClass('active');
     });
-    $('.calc__buy').click(function(event) {
-        $(this).toggleClass('active');
+    $('.header__button, .calc__contact').click(function(event) {
+        $('.contacts').addClass('active');
+        $('body').addClass('lock');
     });
+    $('.close, .contacts__bg').click(function() {
+        $('.contacts').removeClass('active');
+        $('body').removeClass('lock');
+    });
+    $('.calc__buy').click(function(event) {
+      $(this).toggleClass('active');
+    }); 
     $('.calc__dropdown li').on('click', function () {
       const $parentBuy = $(this).closest('.calc__buy'); // Get the closest calc__buy container
       const selectedText = $(this).text(); // Get clicked li text
@@ -44,7 +55,9 @@ $(document).ready(function() {
       }
     }
 
-    $(document).on('click', toggleHeaderLang);
+    $('.header__lang').on('click', function(event) {
+      toggleHeaderLang(event);
+    });
 
     $(document).click(function(event) {
       if (!$(event.target).closest('.header__lang').length) {
@@ -74,41 +87,60 @@ $(document).ready(function() {
       const $priceInput = $item.find('.calc__price input[type="text"], .calc__price input[type="number"]');
     
       function formatNumber(num) {
-        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+      return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
       }
     
       function cleanNumber(val) {
-        return val.toString().replace(/\D/g, '');
+      return val.toString().replace(/\D/g, '');
       }
     
       function syncFromRange() {
-        const val = $range.val();
-        $priceInput.val(formatNumber(val));
+      const val = $range.val();
+      $priceInput.val(formatNumber(val));
+      updateRangeBg($range); // Update the green range background
       }
     
       function syncFromInput() {
-        const rawVal = $priceInput.val();
-        let cleaned = cleanNumber(rawVal);
+      const rawVal = $priceInput.val();
+      let cleaned = cleanNumber(rawVal);
     
-        const max = parseInt($priceInput.attr('max'), 10);
-        if (!isNaN(max) && parseInt(cleaned, 10) > max) {
-          cleaned = max.toString();
-        }
+      const max = parseInt($priceInput.attr('max'), 10);
+      if (!isNaN(max) && parseInt(cleaned, 10) > max) {
+        cleaned = max.toString();
+      }
     
-        $priceInput.val(formatNumber(cleaned));
-        $range.val(cleaned);
+      $priceInput.val(formatNumber(cleaned));
+      $range.val(cleaned);
+      updateRangeBg($range); // Update the green range background
       }
     
       $range.on('input', function () {
-        syncFromRange();
+      syncFromRange();
       });
     
       $priceInput.on('input', function () {
-        syncFromInput();
+      syncFromInput();
       });
     
       // Initialize on page load
       syncFromRange();
+    });
+
+    $('.calc__deposit span').click(function () {
+      const $this = $(this);
+      const $input = $this.closest('.calc__price').find('input[type="text"]');
+      const $range = $this.closest('.calc__item').find('input[type="range"]');
+
+      if ($this.text() === '%') {
+      $this.addClass('active').siblings().removeClass('active');
+      $input.val(0); // Reset input value
+      $range.attr({ min: 1, max: 100, step: 1 }).val(1); // Set range to percentage
+      } else if ($this.text() === 'UZS') {
+      $this.addClass('active').siblings().removeClass('active');
+      $input.val(0); // Reset input value
+      $range.attr({ min: 10000000, max: 1000000000, step: 1000000 }).val(10000000); // Set range to default
+      }
+      updateRangeBg($range); // Update the green range background after changes
     });
     
     // RANGE INPUT
@@ -154,14 +186,14 @@ $(document).ready(function() {
 
     // LEAFLET MAP 
     $(document).ready(function () {
-      const centerLatLng = [41.374333, 69.276861]; // Converted coordinates
+      const centerLatLng = [41.294735, 69.225396]; // Converted coordinates
     
       const map = L.map('map').setView(
         window.innerWidth < 696 
-          ? [41.37175, 69.276556] 
+          ? [41.29231186645379, 69.22533699832125] 
           : window.innerWidth < 1270 
-        ? [41.373583, 69.272333] 
-        : [41.37262178023456, 69.2718746665852], 
+        ? [41.29424416718264, 69.21954855017621] 
+        : [41.29424416718264, 69.21954855017621], 
         16
       );
     
@@ -173,7 +205,7 @@ $(document).ready(function() {
 
       // Adjust zoom level based on screen width
       if (window.innerWidth < 696) {
-          map.setZoom(15);
+          map.setZoom(16);
       }
 
       // Disable zoom control buttons
