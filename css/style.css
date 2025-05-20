@@ -415,6 +415,9 @@ body.active .logo-dark {
   opacity: 0;
   transition: 0.3s ease all;
 }
+.header__lang.active {
+  z-index: 2;
+}
 .header__lang.active > ul {
   visibility: visible;
   opacity: 1;
