@@ -2114,7 +2114,7 @@ body.active .main-bg .dark {
     display: none;
   }
   .main__grid_min-item:hover {
-
+    background: rgba(255, 255, 255, 0.75);  
   }
   .main__grid_min-item .main__grid_svg{
     width: 80%;
@@ -2162,7 +2162,7 @@ body.active .main-bg .dark {
 }
 /* WAFA SECTION ============================================================================== */
 .wafa {
-  padding: 150px 0px 128px 0px;
+  padding: 50px 0px 128px 0px;
 }
 .wafa__container {
 }
